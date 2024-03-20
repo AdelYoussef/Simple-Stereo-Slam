@@ -3,8 +3,8 @@
 
 namespace GL_SLAM
 {
-void feature_test()
-{
-std::cout<<"feature is working "<<std::endl;
-}
+    void feature_test()
+    {
+        std::cout<<"feature is working "<<std::endl;
+    }
 }
