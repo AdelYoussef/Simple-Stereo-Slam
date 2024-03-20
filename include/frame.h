@@ -7,7 +7,7 @@
 
 
 #include "../include/common_include.h"
-
+#include "../include/pinhole_camera.h"
 
 
 /*
@@ -20,11 +20,13 @@
 
 
 //forward decleraion for the feature struct to used a shared pointer
-struct Feature;
+
 
 namespace GL_SLAM
 
 {
+    struct MapPoint;
+    struct Feature;
     void frame_test();
 
     struct Frame  // Each frame is assigned a unique ID, and keyframes are assigned keyframe IDs.

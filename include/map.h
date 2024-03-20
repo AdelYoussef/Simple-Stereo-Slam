@@ -9,6 +9,7 @@
 #include "../include/common_include.h"
 #include "../include/frame.h"
 #include "../include/mappoint.h"
+#include "../include/feature.h"
 
 namespace GL_SLAM
 {
@@ -30,7 +31,8 @@ namespace GL_SLAM
             //and the unique key for each elemnts is unsigned long
             typedef std::unordered_map<unsigned long, Frame::Frame_Ptr> KeyframesType;
 
-            void Insert_Key_Frame(Frame::Frame_Ptr key_frame);
+
+            void Insert_Key_Frame(Frame::Frame_Ptr Key_Frame);
 
             void Insert_Map_Point(MapPoint::MapPoint_Ptr);
 
@@ -66,19 +68,17 @@ namespace GL_SLAM
 
         private:
 
-            void Remove_Old_Key_Frames();
-
+            
+            int Num_Active_Keyframes = 7;
             std::mutex Map_Mutex;
 
             LandmarksType Map_Landmarks; // all landmakrks
             LandmarksType Map_Active_landmarks; // active landmarks only
             KeyframesType Map_Keyframes; // all keyframes
             KeyframesType Map_Active_keyframes; // active keyframes only
+            Frame::Frame_Ptr Current_Frame_Ptr = nullptr; 
 
-            Frame::Frame_Ptr Current_Frame_Ptr = nullptr;
-
-            int Num_Active_Keyframes = 7;
-
+            void Remove_Old_Key_Frames();
 
 
 

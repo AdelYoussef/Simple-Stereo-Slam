@@ -22,6 +22,8 @@
 #include <websocketpp/config/asio_no_tls.hpp>
 #include <websocketpp/server.hpp>
 
+#define FMT_HEADER_ONLY
+#include <fmt/format.h>
 
 // define the commonly included file to avoid a long include list
 #include <eigen3/Eigen/Core>
